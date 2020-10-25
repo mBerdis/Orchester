@@ -17,7 +17,6 @@ public class main
         SlacikovyNastroj husle = new SlacikovyNastroj("Husle", 998, "piiiskhiisk", 4, 4, "ACG", "Slacikove nastroje");
         add_to_orchester(orchester, husle);
         get_zoznam_nastrojov(orchester);
-        System.out.println(get_materialne_naklady(orchester));
     }
 
     public static void add_to_orchester(ArrayList<Nastroj> orchester, Nastroj nastroj)
@@ -25,7 +24,7 @@ public class main
         if (Nastroj.dataOK) {
             orchester.add(nastroj);
             System.out.println("NASTROJ PRIDANY");
-        } else System.out.println("NASTROJ NEPRIDANY TEST");
+        } else System.out.println("NASTROJ NEPRIDANY");
 
     }
 
