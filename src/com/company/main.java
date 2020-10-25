@@ -14,7 +14,7 @@ public class main
         add_to_orchester(orchester, ukulele);
         DychovyNastroj trubka = new DychovyNastroj("Trúbka", 3000.455, "tututu", 1, 1, "D");
         add_to_orchester(orchester, trubka);
-        SlacikovyNastroj husle = new SlacikovyNastroj("Husle", 998, "piiiskhiisk", 4, 4, "ACG", "Slacikove nastroje");
+        SlacikovyNastroj husle = new SlacikovyNastroj("Husle", 998, "piiiskhiisk", 4, 4, "ACG", "2.husle");
         add_to_orchester(orchester, husle);
         get_zoznam_nastrojov(orchester);
     }

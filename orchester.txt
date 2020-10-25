@@ -1,5 +1,11 @@
-U,Jožko,Púčik,Husle,200
-B,Bicie,150,BumBác,1,7
-G,Gitara,200,Brnk,2,6
-H,Husle,300,Tidli-tidli,10,4,GDAE
-S,Saxofón,350,Tírárá,1,16,G
+S,husle,2000,tidli-daj,2,4,GDAE,1.husle
+S,husle,1500,tidli-tidli,3,4,GDAE,2.husle
+r,bicie,1500,bum-prásk,1,9
+s,gitara akustická,500,brnk-brnk,2,6,EHGDAE
+d,saxofón,4500,turururááá,21
+u,Jožko,Púčik,2.husle,200
+u,Miško,Guľôčka,1.husle,300
+u,Ferko,Motúzik,3.husle,150
+u,Janko,Hraško,harfa,250
+u,Marián,Varga,organ,300
+u,Martin,Valihora,bicie,234.80
