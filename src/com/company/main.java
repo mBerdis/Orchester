@@ -16,6 +16,7 @@ public class main
         SlacikovyNastroj husle=new SlacikovyNastroj("Husle",998,"piiiskhiisk",4,4,"ACG","Slacikove nastroje");
         add_to_orchester(orchester,husle);
         get_zoznam_nastrojov(orchester);
+        System.out.println(get_materialne_naklady(orchester));
 
 
     }
