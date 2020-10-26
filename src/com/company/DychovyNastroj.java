@@ -40,6 +40,7 @@ public class DychovyNastroj extends Nastroj
         }
         else dataOK=false;
     }
+
     public boolean checkLetters(String ladenie)
     {
         boolean check=true;
