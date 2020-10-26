@@ -8,8 +8,6 @@ public class main
     public static void main(String[] args)
     {
 
-
-
         ArrayList<Nastroj> orchester = new ArrayList<>();
         Nastroj drumbla = new Nastroj("drumbľa", 5.50, "bingwau", 3);
         add_to_orchester(orchester, drumbla);
