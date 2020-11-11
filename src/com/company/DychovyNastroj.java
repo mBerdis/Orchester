@@ -62,4 +62,15 @@ public class DychovyNastroj extends Nastroj
                 ", ladenie='" + ladenie + '\'' +
                 '}';
     }
+
+    protected String getType()
+    {
+        return "d,";
+    }
+
+    @Override
+    public String saveData()
+    {
+        return super.saveData() +"," +pocetDier +"," +ladenie;
+    }
 }

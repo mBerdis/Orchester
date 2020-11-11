@@ -31,5 +31,15 @@ public class RytmickyNastroj extends Nastroj
                 "pocetZvukov=" + pocetZvukov +
                 '}';
     }
+    protected String getType()
+    {
+        return "r,";
+    }
+
+    @Override
+    public String saveData()
+    {
+        return super.saveData() +"," +pocetZvukov;
+    }
 }
 

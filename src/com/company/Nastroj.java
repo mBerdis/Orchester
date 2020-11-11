@@ -86,4 +86,12 @@ public class Nastroj
                 ", pocet=" + pocet +
                 '}';
     }
+    protected String getType()
+    {
+        return "n,";
+    }
+    public String saveData()
+    {
+        return getType()+druh +"," +cena +"," +zvuk +"," +pocet;
+    }
 }

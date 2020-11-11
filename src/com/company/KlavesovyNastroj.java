@@ -31,4 +31,15 @@ public class KlavesovyNastroj extends Nastroj
                 "pocetKlavesov=" + pocetKlavesov +
                 '}';
     }
+
+    protected String getType()
+    {
+        return "k,";
+    }
+
+    @Override
+    public String saveData()
+    {
+        return super.saveData() +"," +pocetKlavesov;
+    }
 }

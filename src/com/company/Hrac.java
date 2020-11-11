@@ -80,4 +80,11 @@ public class Hrac
                 ", hodinovaSadzba=" + hodinovaSadzba +
                 '}';
     }
+
+    public String saveData()
+    {
+        return "u,"+meno +"," +priezvisko +"," +nastroj +"," +hodinovaSadzba;
+    }
+
+
 }

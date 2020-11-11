@@ -32,4 +32,14 @@ public class SlacikovyNastroj extends StrunovyNastroj
                 "Sekcia='" + sekcia + '\'' +
                 '}';
     }
+    protected String getType()
+    {
+        return "S,";
+    }
+
+    @Override
+    public String saveData()
+    {
+        return super.saveData() +"," +sekcia;
+    }
 }

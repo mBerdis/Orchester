@@ -62,4 +62,15 @@ public class StrunovyNastroj extends Nastroj
                 ", ladenie='" + ladenie + '\'' +
                 '}';
     }
+
+    protected String getType()
+    {
+        return "s,";
+    }
+
+    @Override
+    public String saveData()
+    {
+        return super.saveData() +"," +pocetStrun +"," +ladenie;
+    }
 }
