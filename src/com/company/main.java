@@ -16,6 +16,9 @@ public class main
         SlacikovyNastroj husle = new SlacikovyNastroj("Husle", 998, "piiiskhiisk", 4, 4, "ACG", "2.husle");
         add_to_orchester(orchester, husle);
         get_zoznam_nastrojov(orchester);
+
+        Hrac matej=new Hrac("Matej","Koscelnik",ukulele,454.6);
+        System.out.println(matej.toString());
     }
 
     public static void add_to_orchester(ArrayList<Nastroj> orchester, Nastroj nastroj)

@@ -4,18 +4,17 @@ public class Hrac
 {
     private String meno;
     private String priezvisko;
-    private String nastroj;
+    private Nastroj nastroj;
     private double hodinovaSadzba;
     public static boolean dataOK=true;
 
-    public Hrac(String meno, String priezvisko, String nastroj, double hodinovaSadzba)
+    public Hrac(String meno, String priezvisko, Nastroj nastroj, double hodinovaSadzba)
     {
         dataOK=true;
         setMeno(meno);
         setPriezvisko(priezvisko);
         setNastroj(nastroj);
         setHodinovaSadzba(hodinovaSadzba);
-
     }
 
     public String getMeno()
@@ -47,19 +46,14 @@ public class Hrac
 
     }
 
-    public String getNastroj()
+    public Nastroj getNastroj()
     {
         return nastroj;
     }
 
-    public void setNastroj(String nastroj)
+    public void setNastroj(Nastroj nastroj)
     {
-
-        if (!nastroj.equals(""))
-        {
-            this.nastroj = nastroj;
-        }
-        else dataOK=false;
+        this.nastroj = nastroj;
     }
 
     public double getHodinovaSadzba()
