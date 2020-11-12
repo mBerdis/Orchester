@@ -19,11 +19,11 @@ public class DychovyNastroj extends Nastroj
 
     public void setPocetDier(int pocetDier)
     {
-        if (pocetDier>0&&pocetDier<Integer.MAX_VALUE)
+        if (pocetDier > 0 && pocetDier < Integer.MAX_VALUE)
         {
             this.pocetDier = pocetDier;
         }
-        else dataOK=false;
+        else dataOK = false;
     }
 
     public String getLadenie()
@@ -34,19 +34,20 @@ public class DychovyNastroj extends Nastroj
     public void setLadenie(String ladenie)
     {
         this.ladenie = ladenie;
-        if (ladenie.length()==1 && checkLetters(ladenie))
+        if (ladenie.length() == 1 && checkLetters(ladenie))
         {
-            this.ladenie=ladenie;
+            this.ladenie = ladenie;
         }
-        else dataOK=false;
+        else dataOK = false;
     }
 
     public boolean checkLetters(String ladenie)
     {
-        boolean check=true;
+        boolean check = true;
         for (int i = 0; i < ladenie.length(); i++)
         {
-            if (!(ladenie.charAt(i) == 'A') && !(ladenie.charAt(i) >= 'C' && ladenie.charAt(i) <= 'H')) {
+            if (!(ladenie.charAt(i) == 'A') && !(ladenie.charAt(i) >= 'C' && ladenie.charAt(i) <= 'H'))
+            {
                 check = false;
                 break;
             }
@@ -57,7 +58,7 @@ public class DychovyNastroj extends Nastroj
     @Override
     public String toString()
     {
-        return "DychovyNastroj{" +super.toString()+
+        return "DychovyNastroj{" + super.toString() +
                 "pocetDier=" + pocetDier +
                 ", ladenie='" + ladenie + '\'' +
                 '}';
@@ -71,6 +72,6 @@ public class DychovyNastroj extends Nastroj
     @Override
     public String saveData()
     {
-        return super.saveData() +"," +pocetDier +"," +ladenie;
+        return super.saveData() + "," + pocetDier + "," + ladenie;
     }
 }

@@ -17,20 +17,21 @@ public class RytmickyNastroj extends Nastroj
 
     public void setPocetZvukov(int pocetZvukov)
     {
-        if (pocetZvukov>0&&pocetZvukov<Integer.MAX_VALUE)
+        if (pocetZvukov > 0 && pocetZvukov < Integer.MAX_VALUE)
         {
             this.pocetZvukov = pocetZvukov;
         }
-        else dataOK=false;
+        else dataOK = false;
     }
 
     @Override
     public String toString()
     {
-        return "RytmickyNastroj{"+super.toString() +
+        return "RytmickyNastroj{" + super.toString() +
                 "pocetZvukov=" + pocetZvukov +
                 '}';
     }
+
     protected String getType()
     {
         return "r,";
@@ -39,7 +40,7 @@ public class RytmickyNastroj extends Nastroj
     @Override
     public String saveData()
     {
-        return super.saveData() +"," +pocetZvukov;
+        return super.saveData() + "," + pocetZvukov;
     }
 }
 

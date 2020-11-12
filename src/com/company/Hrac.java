@@ -6,11 +6,11 @@ public class Hrac
     private String priezvisko;
     private Nastroj nastroj;
     private double hodinovaSadzba;
-    public static boolean dataOK=true;
+    public static boolean dataOK = true;
 
     public Hrac(String meno, String priezvisko, Nastroj nastroj, double hodinovaSadzba)
     {
-        dataOK=true;
+        dataOK = true;
         setMeno(meno);
         setPriezvisko(priezvisko);
         setNastroj(nastroj);
@@ -28,7 +28,7 @@ public class Hrac
         {
             this.meno = meno;
         }
-        else dataOK=false;
+        else dataOK = false;
     }
 
     public String getPriezvisko()
@@ -42,7 +42,7 @@ public class Hrac
         {
             this.priezvisko = priezvisko;
         }
-        else dataOK=false;
+        else dataOK = false;
 
     }
 
@@ -63,11 +63,11 @@ public class Hrac
 
     public void setHodinovaSadzba(double hodinovaSadzba)
     {
-        if (hodinovaSadzba>-1&&hodinovaSadzba<Double.MAX_VALUE)
+        if (hodinovaSadzba > -1 && hodinovaSadzba < Double.MAX_VALUE)
         {
             this.hodinovaSadzba = hodinovaSadzba;
         }
-        else dataOK=false;
+        else dataOK = false;
     }
 
     @Override
@@ -83,7 +83,7 @@ public class Hrac
 
     public String saveData()
     {
-        return "u,"+meno +"," +priezvisko +"," +nastroj +"," +hodinovaSadzba;
+        return "u," + meno + "," + priezvisko + "," + nastroj + "," + hodinovaSadzba;
     }
 
 

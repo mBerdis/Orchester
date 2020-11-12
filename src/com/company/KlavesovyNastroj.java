@@ -17,17 +17,17 @@ public class KlavesovyNastroj extends Nastroj
 
     public void setPocetKlavesov(int pocetKlavesov)
     {
-        if (pocetKlavesov>0&&pocetKlavesov<Integer.MAX_VALUE)
+        if (pocetKlavesov > 0 && pocetKlavesov < Integer.MAX_VALUE)
         {
             this.pocetKlavesov = pocetKlavesov;
         }
-        else dataOK=false;
+        else dataOK = false;
     }
 
     @Override
     public String toString()
     {
-        return "KlavesovyNastroj{"+super.toString() +
+        return "KlavesovyNastroj{" + super.toString() +
                 "pocetKlavesov=" + pocetKlavesov +
                 '}';
     }
@@ -40,6 +40,6 @@ public class KlavesovyNastroj extends Nastroj
     @Override
     public String saveData()
     {
-        return super.saveData() +"," +pocetKlavesov;
+        return super.saveData() + "," + pocetKlavesov;
     }
 }

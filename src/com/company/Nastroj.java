@@ -6,12 +6,12 @@ public class Nastroj
     private double cena;
     private String zvuk;
     private int pocet;
-    public static boolean dataOK=true;
+    public static boolean dataOK = true;
 
 
     public Nastroj(String druh, double cena, String zvuk, int pocet)
     {
-        dataOK=true;
+        dataOK = true;
         setDruh(druh);
         setCena(cena);
         setZvuk(zvuk);
@@ -29,7 +29,7 @@ public class Nastroj
         {
             this.druh = druh;
         }
-        else dataOK=false;
+        else dataOK = false;
     }
 
     public double getCena()
@@ -39,11 +39,11 @@ public class Nastroj
 
     public void setCena(double cena)
     {
-        if (cena>-1&&cena<Double.MAX_VALUE)
+        if (cena > -1 && cena < Double.MAX_VALUE)
         {
             this.cena = cena;
         }
-        else dataOK=false;
+        else dataOK = false;
 
     }
 
@@ -58,7 +58,7 @@ public class Nastroj
         {
             this.zvuk = zvuk;
         }
-        else dataOK=false;
+        else dataOK = false;
 
     }
 
@@ -69,11 +69,11 @@ public class Nastroj
 
     public void setPocet(int pocet)
     {
-        if (pocet>0&&pocet<Integer.MAX_VALUE)
+        if (pocet > 0 && pocet < Integer.MAX_VALUE)
         {
             this.pocet = pocet;
         }
-        else dataOK=false;
+        else dataOK = false;
     }
 
     @Override
@@ -86,12 +86,14 @@ public class Nastroj
                 ", pocet=" + pocet +
                 '}';
     }
+
     protected String getType()
     {
         return "n,";
     }
+
     public String saveData()
     {
-        return getType()+druh +"," +cena +"," +zvuk +"," +pocet;
+        return getType() + druh + "," + cena + "," + zvuk + "," + pocet;
     }
 }

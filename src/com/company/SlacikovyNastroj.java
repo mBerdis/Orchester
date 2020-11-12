@@ -22,16 +22,17 @@ public class SlacikovyNastroj extends StrunovyNastroj
         {
             this.sekcia = sekcia;
         }
-        else dataOK=false;
+        else dataOK = false;
     }
 
     @Override
     public String toString()
     {
-        return "SlacikovyNastroj{"+super.toString() +
+        return "SlacikovyNastroj{" + super.toString() +
                 "Sekcia='" + sekcia + '\'' +
                 '}';
     }
+
     protected String getType()
     {
         return "S,";
@@ -40,6 +41,6 @@ public class SlacikovyNastroj extends StrunovyNastroj
     @Override
     public String saveData()
     {
-        return super.saveData() +"," +sekcia;
+        return super.saveData() + "," + sekcia;
     }
 }

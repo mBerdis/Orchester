@@ -19,11 +19,11 @@ public class StrunovyNastroj extends Nastroj
 
     public void setPocetStrun(int pocetStrun)
     {
-        if (pocetStrun>0&&pocetStrun<Integer.MAX_VALUE)
+        if (pocetStrun > 0 && pocetStrun < Integer.MAX_VALUE)
         {
             this.pocetStrun = pocetStrun;
         }
-        else dataOK=false;
+        else dataOK = false;
     }
 
     public String getLadenie()
@@ -34,19 +34,21 @@ public class StrunovyNastroj extends Nastroj
     public void setLadenie(String ladenie)
     {
 
-        if (ladenie.length()==pocetStrun && checkLetters(ladenie))
+        if (ladenie.length() == pocetStrun && checkLetters(ladenie))
         {
-            this.ladenie=ladenie;
+            this.ladenie = ladenie;
         }
-        else dataOK=false;
+        else dataOK = false;
 
     }
+
     private boolean checkLetters(String ladenie)
     {
-        boolean check=true;
+        boolean check = true;
         for (int i = 0; i < ladenie.length(); i++)
         {
-            if (!(ladenie.charAt(i) == 'A') && !(ladenie.charAt(i) >= 'C' && ladenie.charAt(i) <= 'H')) {
+            if (!(ladenie.charAt(i) == 'A') && !(ladenie.charAt(i) >= 'C' && ladenie.charAt(i) <= 'H'))
+            {
                 check = false;
                 break;
             }
@@ -57,7 +59,7 @@ public class StrunovyNastroj extends Nastroj
     @Override
     public String toString()
     {
-        return "StrunovyNastroj{"+super.toString() +
+        return "StrunovyNastroj{" + super.toString() +
                 "pocetStrun=" + pocetStrun +
                 ", ladenie='" + ladenie + '\'' +
                 '}';
@@ -71,6 +73,6 @@ public class StrunovyNastroj extends Nastroj
     @Override
     public String saveData()
     {
-        return super.saveData() +"," +pocetStrun +"," +ladenie;
+        return super.saveData() + "," + pocetStrun + "," + ladenie;
     }
 }
