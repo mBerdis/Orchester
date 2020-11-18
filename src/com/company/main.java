@@ -8,7 +8,7 @@ public class main
     public static void main(String[] args) throws IOException
     {
         BufferedWriter bw = new BufferedWriter(new FileWriter("orchester.dat"));
-        ArrayList<Nastroj> orchester = new ArrayList<>();
+        ArrayList<Nastroj> orchesterNastroje = new ArrayList<>();
         Nastroj drumbla = new Nastroj("drumbľa", 5.50, "bingwau", 3);
         // add_to_orchester(orchester, drumbla);
         StrunovyNastroj ukulele = new StrunovyNastroj("ukulele", 60, "brinkibrink", 2, 4, "DGHE");
@@ -28,6 +28,7 @@ public class main
         BufferedReader br = new BufferedReader(new FileReader("orchester.dat"));
         String line;
         Nastroj nastroj = null;
+        Hrac hrac=null;
         while ((line = br.readLine()) != null)
         {
             String[] splitLine = line.split(",");
@@ -54,16 +55,21 @@ public class main
                 case "d":
                     nastroj = new DychovyNastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]),
                             Integer.parseInt(splitLine[5]), splitLine[6]);
+                    break;
+                case "u":
+                    hrac=new Hrac(splitLine[1],splitLine[2],splitLine[3],Double.parseDouble(splitLine[4]));
 
             }
-            add_to_orchester(orchester, nastroj);
+            add_to_orchesterNastroj(orchesterNastroje, nastroj);
+            //toto treba prerobit nejak lepsie, lebo nastane problem ked pride riadok s hracom v subore
+            //Neviem ci nastroj v hracovi nedame typu string, lebo ma nenapada jak to inac poriesit tu chybu v case "u", aj ked on chcel typ Nastroj
         }
-        get_zoznam_nastrojov(orchester);
+        get_zoznam_nastrojov(orchesterNastroje);
 
 
     }
 
-    public static void add_to_orchester(ArrayList<Nastroj> orchester, Nastroj nastroj)
+    public static void add_to_orchesterNastroj(ArrayList<Nastroj> orchester, Nastroj nastroj)
     {
         if (Nastroj.dataOK)
         {
