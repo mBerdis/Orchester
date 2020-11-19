@@ -76,17 +76,19 @@ public class main
     {
         for (Nastroj nastroj : nastroje)
         {
-            if (str.contains(nastroj.getDruh()))
+            if (str.contains(nastroj.getDruh()) && nastroj.getDostupnyPocet()!=0)
             {
                 if (nastroj instanceof SlacikovyNastroj)
                 {
-                    if (str.equals(((SlacikovyNastroj) nastroj).getSekcia()))
+                    if (str.equals(((SlacikovyNastroj) nastroj).getSekcia()) && nastroj.getDostupnyPocet()!=0)
                     {
+                        nastroj.setDostupnyPocet(nastroj.getDostupnyPocet()-1);
                         return nastroj;
                     }
                 }
                 else
                 {
+                    nastroj.setDostupnyPocet(nastroj.getDostupnyPocet()-1);
                     return nastroj;
                 }
             }

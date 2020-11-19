@@ -6,6 +6,7 @@ public class Nastroj
     private double cena;
     private String zvuk;
     private int pocet;
+    private int dostupnyPocet;
     public static boolean dataOK = true;
 
 
@@ -16,6 +17,7 @@ public class Nastroj
         setCena(cena);
         setZvuk(zvuk);
         setPocet(pocet);
+        dostupnyPocet=pocet;
     }
 
     public String getDruh()
@@ -74,6 +76,16 @@ public class Nastroj
             this.pocet = pocet;
         }
         else dataOK = false;
+    }
+
+    public int getDostupnyPocet()
+    {
+        return dostupnyPocet;
+    }
+
+    public void setDostupnyPocet(int dostupnyPocet)
+    {
+        this.dostupnyPocet = dostupnyPocet;
     }
 
     @Override

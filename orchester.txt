@@ -9,3 +9,4 @@ u,Ferko,Motúzik,2.husle,150
 u,Janko,Hraško,gitara akustická,250
 u,Marián,Varga,saxofón,300
 u,Martin,Valihora,bicie,234.80
+u,Matej,Koscelník,bicie,234.80
