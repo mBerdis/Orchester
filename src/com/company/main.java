@@ -7,25 +7,8 @@ public class main
 {
     public static void main(String[] args) throws IOException
     {
-        BufferedWriter bw = new BufferedWriter(new FileWriter("orchester.dat"));
         ArrayList<Nastroj> orchesterNastroje = new ArrayList<>();
         ArrayList<Hrac> orchesterUmelci = new ArrayList<>();
-        Nastroj drumbla = new Nastroj("drumbľa", 5.50, "bingwau", 3);
-        // add_to_orchester(orchester, drumbla);
-        StrunovyNastroj ukulele = new StrunovyNastroj("ukulele", 60, "brinkibrink", 2, 4, "DGHE");
-        //  add_to_orchester(orchester, ukulele);
-       /* DychovyNastroj trubka = new DychovyNastroj("Trúbka", 3000.455, "tututu", 1, 1, "D");
-        add_to_orchester(orchester, trubka);
-        SlacikovyNastroj husle = new SlacikovyNastroj("Husle", 998, "piiiskhiisk", 4, 4, "ACG", "2.husle");
-        add_to_orchester(orchester, husle);
-        get_zoznam_nastrojov(orchester);*/
-
-        Hrac matej = new Hrac("Matej", "Koscelnik", ukulele, 454.6);
-        bw.write(drumbla.saveData() + "\n");
-        bw.write(ukulele.saveData() + "\n");
-        //    bw.write(matej.saveData()+"\n");
-        bw.close();
-
         BufferedReader br = new BufferedReader(new FileReader("orchester.txt"));
         String line;
         Nastroj nastroj = null;
@@ -67,9 +50,24 @@ public class main
             }
         }
 
+        System.out.println("--------------------NASTROJE-----------------\n");
         get_zoznam_nastrojov(orchesterNastroje);
+        System.out.println();
+        System.out.println("---------------------UMELCI------------------\n");
         get_zoznam_hracov(orchesterUmelci);
+        System.out.println();
+        System.out.println("--------------OBSADENIE ORCHESTRA------------\n");
+        get_obsadenie_orchestra(orchesterUmelci);
+        System.out.println();
+        System.out.println("---------------MATERIALNE NAKLADY------------\n");
+        System.out.println(get_materialne_naklady(orchesterNastroje) + " €\n");
+        System.out.println("---------------ORCHESTRALNA SKLADBA------------\n");
+        zahraj_skladbu(orchesterNastroje);
+        System.out.println();
+        System.out.println("---------------CENA VYSTUPENIA------------\n");
+        get_cena_vystupenia(orchesterNastroje, orchesterUmelci);
 
+        ulozenie_do_suboru(orchesterNastroje, orchesterUmelci);
     }
 
     public static Nastroj zistiDruhNastroja(String str, ArrayList<Nastroj> nastroje)
@@ -146,6 +144,7 @@ public class main
         for (Nastroj nastroj : orchester)
         {
             System.out.println(nastroj.toString());
+
         }
     }
 
@@ -155,6 +154,42 @@ public class main
         {
             System.out.println(hrac.toString());
         }
+    }
+
+    public static void get_obsadenie_orchestra(ArrayList<Hrac> orchesterUmelci)
+    {
+        for (Hrac hrac : orchesterUmelci)
+        {
+            if (hrac.getNastroj() != null)
+                System.out.println(hrac.getMeno() + " " + hrac.getPriezvisko() + " - " + hrac.getNastroj().saveData());
+        }
+    }
+
+    public static void get_cena_vystupenia(ArrayList<Nastroj> orchesterN, ArrayList<Hrac> orchesterU)
+    {
+        double sumaZaH = 0;
+        for (Hrac hrac : orchesterU)
+        {
+            sumaZaH += hrac.getHodinovaSadzba();
+        }
+        System.out.println("Cena za nastroje: " + get_materialne_naklady(orchesterN) + " €\n"
+                + "Naklady na umelcov za hodinu: " + sumaZaH + " €");
+    }
+
+    public static void ulozenie_do_suboru(ArrayList<Nastroj> orchesterN, ArrayList<Hrac> orchesterU) throws IOException
+    {
+        BufferedWriter bw = new BufferedWriter(new FileWriter("orchester.dat"));
+
+        for (Nastroj nastroj : orchesterN)
+        {
+            bw.write(nastroj.saveData() + "\n");
+        }
+        for (Hrac hrac : orchesterU)
+        {
+            bw.write(hrac.saveData() + "\n");
+        }
+        bw.close();
+
     }
 
 
