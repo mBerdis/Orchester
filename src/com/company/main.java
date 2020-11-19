@@ -161,7 +161,11 @@ public class main
         for (Hrac hrac : orchesterUmelci)
         {
             if (hrac.getNastroj() != null)
-                System.out.println(hrac.getMeno() + " " + hrac.getPriezvisko() + " - " + hrac.getNastroj().saveData());
+                if (hrac.getNastroj() instanceof SlacikovyNastroj)
+                    System.out.println(hrac.getMeno() + " " + hrac.getPriezvisko() + " - " + ((SlacikovyNastroj) hrac.getNastroj()).getSekcia());
+                else
+                    System.out.println(hrac.getMeno() + " " + hrac.getPriezvisko() + " - " + hrac.getNastroj().getDruh());
+
         }
     }
 
