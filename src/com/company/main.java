@@ -1,7 +1,5 @@
 package com.company;
 
-import javafx.event.Event;
-
 import java.io.*;
 import java.util.ArrayList;
 

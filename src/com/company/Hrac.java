@@ -83,7 +83,19 @@ public class Hrac
 
     public String saveData()
     {
-        return "u," + meno + "," + priezvisko + "," + nastroj + "," + hodinovaSadzba;
+        if (nastroj == null)
+        {
+            return "u," + meno + "," + priezvisko + "," + null + "," + hodinovaSadzba;
+        }
+        else if (nastroj instanceof SlacikovyNastroj)
+        {
+            return "u," + meno + "," + priezvisko + "," + (((SlacikovyNastroj) nastroj).getSekcia()) + "," + hodinovaSadzba;
+        }
+        else
+        {
+            return "u," + meno + "," + priezvisko + "," + nastroj.getDruh() + "," + hodinovaSadzba;
+        }
+
     }
 
 
