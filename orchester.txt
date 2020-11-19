@@ -5,7 +5,7 @@ s,gitara akustická,500,brnk-brnk,2,6,EHGDAE
 d,saxofón,4500,turururááá,21,8,D
 u,Jožko,Púčik,2.husle,200
 u,Miško,Guľôčka,1.husle,300
-u,Ferko,Motúzik,3.husle,150
-u,Janko,Hraško,harfa,250
-u,Marián,Varga,organ,300
+u,Ferko,Motúzik,2.husle,150
+u,Janko,Hraško,gitara akustická,250
+u,Marián,Varga,saxofón,300
 u,Martin,Valihora,bicie,234.80
