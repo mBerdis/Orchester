@@ -1,5 +1,7 @@
 package com.company;
 
+import javafx.event.Event;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -44,7 +46,7 @@ public class main
                     add_to_orchesterNastroj(orchesterNastroje, nastroj);
                     break;
                 case "S":
-                    nastroj = new SlacikovyNastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]), Integer.parseInt(splitLine[5]), splitLine[6], splitLine[6]);
+                    nastroj = new SlacikovyNastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]), Integer.parseInt(splitLine[5]), splitLine[6], splitLine[7]);
                     add_to_orchesterNastroj(orchesterNastroje, nastroj);
                     break;
                 case "r":
@@ -78,17 +80,17 @@ public class main
         {
             if (str.contains(nastroj.getDruh()))
             {
-                try
+                if (nastroj instanceof SlacikovyNastroj)
                 {
-                    // ak je Nastroj SlacikovyNastroj potrebujeme z neho ziskat Sekciu a to porovnat s str
-                    if (nastroj.getClass() instanceof SlacikovyNastroj)
-                        nastrojTest.getSekcia();
+                    if (str.equals(((SlacikovyNastroj) nastroj).getSekcia()))
+                    {
+                        return nastroj;
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-
+                    return nastroj;
                 }
-                return nastroj;
             }
         }
         return null;
