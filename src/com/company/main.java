@@ -9,6 +9,7 @@ public class main
     {
         BufferedWriter bw = new BufferedWriter(new FileWriter("orchester.dat"));
         ArrayList<Nastroj> orchesterNastroje = new ArrayList<>();
+        ArrayList<Hrac> orchesterUmelci = new ArrayList<>();
         Nastroj drumbla = new Nastroj("drumbľa", 5.50, "bingwau", 3);
         // add_to_orchester(orchester, drumbla);
         StrunovyNastroj ukulele = new StrunovyNastroj("ukulele", 60, "brinkibrink", 2, 4, "DGHE");
@@ -25,10 +26,10 @@ public class main
         //    bw.write(matej.saveData()+"\n");
         bw.close();
 
-        BufferedReader br = new BufferedReader(new FileReader("orchester.dat"));
+        BufferedReader br = new BufferedReader(new FileReader("orchester.txt"));
         String line;
         Nastroj nastroj = null;
-        Hrac hrac=null;
+        Hrac hrac = null;
         while ((line = br.readLine()) != null)
         {
             String[] splitLine = line.split(",");
@@ -36,37 +37,71 @@ public class main
             {
                 case "n":
                     nastroj = new Nastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]));
+                    add_to_orchesterNastroj(orchesterNastroje, nastroj);
                     break;
                 case "s":
-                    nastroj = new StrunovyNastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]),
-                            Integer.parseInt(splitLine[5]), splitLine[6]);
+                    nastroj = new StrunovyNastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]), Integer.parseInt(splitLine[5]), splitLine[6]);
+                    add_to_orchesterNastroj(orchesterNastroje, nastroj);
                     break;
                 case "S":
-                    nastroj = new SlacikovyNastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]),
-                            Integer.parseInt(splitLine[5]), splitLine[6], splitLine[6]);
+                    nastroj = new SlacikovyNastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]), Integer.parseInt(splitLine[5]), splitLine[6], splitLine[6]);
+                    add_to_orchesterNastroj(orchesterNastroje, nastroj);
                     break;
                 case "r":
-                    nastroj = new RytmickyNastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]),
-                            Integer.parseInt(splitLine[5]));
+                    nastroj = new RytmickyNastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]), Integer.parseInt(splitLine[5]));
+                    add_to_orchesterNastroj(orchesterNastroje, nastroj);
                     break;
                 case "k":
                     nastroj = new KlavesovyNastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]), Integer.parseInt(splitLine[5]));
+                    add_to_orchesterNastroj(orchesterNastroje, nastroj);
                     break;
                 case "d":
-                    nastroj = new DychovyNastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]),
-                            Integer.parseInt(splitLine[5]), splitLine[6]);
+                    nastroj = new DychovyNastroj(splitLine[1], Double.parseDouble(splitLine[2]), splitLine[3], Integer.parseInt(splitLine[4]), Integer.parseInt(splitLine[5]), splitLine[6]);
+                    add_to_orchesterNastroj(orchesterNastroje, nastroj);
                     break;
                 case "u":
-                    hrac=new Hrac(splitLine[1],splitLine[2],splitLine[3],Double.parseDouble(splitLine[4]));
+                    hrac = new Hrac(splitLine[1], splitLine[2], zistiDruhNastroja(splitLine[3], orchesterNastroje), Double.parseDouble(splitLine[4]));
+                    add_to_orchesterUmelec(orchesterUmelci, hrac);
+                    break;
 
             }
-            add_to_orchesterNastroj(orchesterNastroje, nastroj);
-            //toto treba prerobit nejak lepsie, lebo nastane problem ked pride riadok s hracom v subore
-            //Neviem ci nastroj v hracovi nedame typu string, lebo ma nenapada jak to inac poriesit tu chybu v case "u", aj ked on chcel typ Nastroj
         }
+
         get_zoznam_nastrojov(orchesterNastroje);
+        get_zoznam_hracov(orchesterUmelci);
 
+    }
 
+    public static Nastroj zistiDruhNastroja(String str, ArrayList<Nastroj> nastroje)
+    {
+        for (Nastroj nastroj : nastroje)
+        {
+            if (str.contains(nastroj.getDruh()))
+            {
+                try
+                {
+                    // ak je Nastroj SlacikovyNastroj potrebujeme z neho ziskat Sekciu a to porovnat s str
+                    if (nastroj.getClass() instanceof SlacikovyNastroj)
+                        nastrojTest.getSekcia();
+                }
+                catch (Exception ex)
+                {
+
+                }
+                return nastroj;
+            }
+        }
+        return null;
+    }
+
+    public static void add_to_orchesterUmelec(ArrayList<Hrac> orchester, Hrac umelec)
+    {
+        if (Hrac.dataOK)
+        {
+            orchester.add(umelec);
+            System.out.println("HRAC PRIDANY");
+        }
+        else System.out.println("ZADANE CHYBNE DATA, HRAC NEPRIDANY");
     }
 
     public static void add_to_orchesterNastroj(ArrayList<Nastroj> orchester, Nastroj nastroj)
@@ -109,6 +144,14 @@ public class main
         for (Nastroj nastroj : orchester)
         {
             System.out.println(nastroj.toString());
+        }
+    }
+
+    public static void get_zoznam_hracov(ArrayList<Hrac> orchester)
+    {
+        for (Hrac hrac : orchester)
+        {
+            System.out.println(hrac.toString());
         }
     }
 
