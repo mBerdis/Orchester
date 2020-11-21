@@ -1,6 +1,8 @@
 package com.company;
 
-public class Nastroj
+import javax.swing.text.html.ObjectView;
+
+public class Nastroj implements VieZniet
 {
     private String druh;
     private double cena;
@@ -107,5 +109,11 @@ public class Nastroj
     public String saveData()
     {
         return getType() + druh + "," + cena + "," + zvuk + "," + pocet;
+    }
+
+    @Override
+    public String zaznej()
+    {
+        return getZvuk();
     }
 }
