@@ -52,31 +52,33 @@ public class main
 
         System.out.println("--------------------NASTROJE-----------------\n");
         get_zoznam_nastrojov(orchesterNastroje);
-        System.out.println();
-        System.out.println("---------------------UMELCI------------------\n");
+
+        System.out.println("\n---------------------UMELCI------------------\n");
         get_zoznam_hracov(orchesterUmelci);
-        System.out.println();
-        System.out.println("--------------OBSADENIE ORCHESTRA------------\n");
+
+        System.out.println("\n--------------OBSADENIE ORCHESTRA------------\n");
         get_obsadenie_orchestra(orchesterUmelci);
-        System.out.println();
-        System.out.println("---------------MATERIALNE NAKLADY------------\n");
+
+        System.out.println("\n---------------MATERIALNE NAKLADY------------\n");
         System.out.println(get_materialne_naklady(orchesterNastroje) + " €\n");
+
         System.out.println("--------------ORCHESTRALNA SKLADBA-----------\n");
         zahraj_skladbu(orchesterNastroje);
-        System.out.println();
-        System.out.println("-----------------CENA VYSTUPENIA-------------\n");
+
+        System.out.println("\n-----------------CENA VYSTUPENIA-------------\n");
         get_cena_vystupenia(orchesterNastroje, orchesterUmelci);
-        System.out.println();
+
         ulozenie_do_suboru(orchesterNastroje, orchesterUmelci);
-        System.out.println("------------------MEGA KONCERT---------------\n");
+
+        System.out.println("\n------------------MEGA KONCERT---------------\n");
         ArrayList<VieZniet> koncert = new ArrayList<>();
         Lod lod = new Lod(300, 90);
         koncert.add(lod);
         koncert.add(orchesterNastroje.get(0));
+        
         for (VieZniet znej : koncert)
         {
             System.out.println(znej.zaznej());
-
         }
 
     }
